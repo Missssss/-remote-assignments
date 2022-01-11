@@ -116,8 +116,6 @@ body{
     text-align: center;
     font-size: 96px;
 }
-section{
-}
 .section-title, .section-button{
     padding:20px;
 }
@@ -158,7 +156,8 @@ section{
 ============================================= */
 
 @media (min-width: 1200px){
-    body{
+    .content{
         width: 1200px;
+        margin:0 auto;
     }
 }
