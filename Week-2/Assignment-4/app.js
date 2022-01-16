@@ -18,8 +18,14 @@ headline.addEventListener('click',() =>{
 
 sectionBtn.addEventListener('click', () =>{
 	// origin
-	hiddenRow.setAttribute('style','display:flex');
-
+	if(hiddenRow.style.display == 'none'){
+		hiddenRow.style.display = 'flex';
+		sectionBtn.textContent = 'Show Less';
+	}else{
+		hiddenRow.style.display = 'none'
+		sectionBtn.textContent = 'Show More';
+	}
+	
 	// try
 	// if(sectionBtn.textContent === 'Show More'){
 	// 	hiddenRow.setAttribute('style','display:flex');
