@@ -1,0 +1,88 @@
+/* ============================================= 
+    Base Styles
+============================================= */
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+.banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.col{
+}
+
+/* ============================================= 
+    Media Queries
+============================================= */
+@media (min-width: 769px){
+    .header, .nav, .row, .col{
+        display: flex;
+    }
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+    .col{
+        flex: 1;
+        flex-direction: column;
+        flex-basis:45%;
+    }
+    /* .button{
+        margin-top: auto;
+    } */
+    .row{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+@media (min-width: 1025px){
+    .header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .col{
+        flex-basis:45%;
+    }
+    .row{
+        flex-direction: row;
+    }
+    /* .button{
+        margin-top: auto;
+    } */
+}
+
+/*Flexbox*/
+/*
+.container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+.title{
+    margin-right:auto;
+    background-color:#e8e9e9;
+    padding:0px;
+}
+.title img{
+    width: 51.5px;
+}
+.project-container{
+    display: flex;
+    min-height: 50vh;
+}
+.project-item{
+    margin:auto;
+}
+*/
