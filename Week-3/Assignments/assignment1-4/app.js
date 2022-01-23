@@ -5,7 +5,7 @@ const app = express();
 
 
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use('/static', express.static('public'));
+app.use(express.static('public'));
 app.use(cookieParser());
 
 app.set('view engine', 'pug');
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-
+//-------------------------------------
 // Assignment 2
 //(Optional) Think about what will happen when N is very large?
 //the maximum URL length is 2083 characters, if N is too large to fix the length, it may be broken.
@@ -27,6 +27,9 @@ app.get('/data', (req, res) => {
     if(isNaN(req.query.number)){
       result = 'Wrong Parameter';
     }
+    else if(req.query.number < 0){
+      result = '請輸入正整數';
+    }
     else{
       // 總和
       result = (1 + Number(req.query.number))*Number(req.query.number)/2;
@@ -34,12 +37,28 @@ app.get('/data', (req, res) => {
     res.send(`${result}`);
 });
 
+//-------------------------------------
+// Assignment 3: /public/sum.html
 
-// Assignment 3
-app.post('/sum', (req, res) => {
-  res.render('sum');
+//-------------------------------------
+// Assignment 4: 
+app.get('/myName', (req, res) => {
+  // 拿cookies的name
+  const name = req.cookies.username;
+  res.render('myName', {name: name});
 });
 
+app.get('/trackName', (req, res) => {
+  const name = req.query.name;
+  res.cookie('username', name);
+  res.redirect('/myName');
+})
+
+// app.post('/trackName', (req, res) => {
+//   // set cookies 一筆資料
+//   res.cookie('username', req.body.name);
+//   res.redirect('/myName');
+// });
 
 app.listen(3000, () => {
     console.log('This app is listening on port 3000!')

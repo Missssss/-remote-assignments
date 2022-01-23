@@ -1,0 +1,15 @@
+doctype html 
+html(lang="en")
+    head    
+        title Assignment IV
+    body
+        header 
+            h1 Assignment IV: HTTP Cookie
+        section
+            if name 
+                h2 Welcome, #{name}! Have a Good Day!  
+            else
+                form(action='/trackName', method='get')
+                    label 請輸入您的名字：
+                        input(type='text', name='name', placeholder='Please enter you name')
+                    button(type='submit') 送出

@@ -1,0 +1,39 @@
+<!-- Assignmemt 3 -->
+<html lang="en">
+<head>
+    <title>Assignment 3</title>
+</head>
+<style>
+
+</style>
+<body>
+    <header>
+        <h1>Assignment III: Connect to Backend API by AJAX</h1>
+    </header>
+    <section>
+        <label>請輸入一個正整數：</label>
+            <input type="number" id="input" placeholder="Enter a number">
+            <button type="submit" id="btn">送出</button>
+        <div>
+            <p id="result"></p>
+        </div>
+    </section>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+    const input = document.getElementById('input');
+
+    btn.addEventListener('click', function(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status === 200){
+                console.log(xhr.responseText);
+                var result = document.getElementById("result");
+                result.textContent = `回傳結果：${xhr.responseText}`;
+            }
+        }
+        xhr.open('GET',`http://localhost:3000/data?number=${input.value}`);
+        xhr.send();
+    })
+</script>
+</html>
