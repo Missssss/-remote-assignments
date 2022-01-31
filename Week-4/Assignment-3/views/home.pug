@@ -1,0 +1,40 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title HOME 
+        link(rel="stylesheet", href='/css/style.css')
+    body 
+        div.form
+            div.content-login
+                div#login
+                    h1 Login 
+                    form#login_form
+                        .form-group 
+                            label(for='email') Email
+                            input.input_email_login(type="email", id='email', name='email', required)
+                        .form-group
+                            label(for='password') Password 
+                            input.input_password_login(type="text", id='password', name='password', required)
+                        button.button.button-login(type="submit") Log In
+                        p#signupfirst Don't have an account? Sign up first!            
+            
+            div.content-signup
+                div#signup
+                    h1 Signup 
+                    form#signup_form()
+                        .form-group 
+                            label(for='username') Username 
+                            input.input_signup.input_username(type="text", id='username', name='username', required)
+                        .form-group 
+                            label(for='email') Email
+                            input.input_signup.input_email(type='email', id='email', name='email', required)
+                        .form-group
+                            label(for='password') Password 
+                            input.input_signup.input_password(type='text', id='password', name="password" ,required)
+                        
+                        button(type='submit' class='button button_signup') Signup
+                        
+                        p#toLogin Already have an account? Login Here!
+    script(type='text/javascript' src='/js/home.js')
